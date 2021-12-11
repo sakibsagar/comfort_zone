@@ -4,6 +4,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 //my own imports
 import 'package:comfort_zone/components/horizontal_listview.dart';
 import 'package:comfort_zone/components/products.dart';
+import 'package:comfort_zone/pages/cart.dart';
 
 void main() {
   runApp(
@@ -34,11 +35,12 @@ class _HomePageState extends State<HomePage> {
           AssetImage('images/womens section1.png'),
           AssetImage('images/section 2.png'),
         ],
-        autoplay: false,
+        autoplay: true,
         // animationCurve: Curves.fastOutSlowIn,
         // animationDuration: Duration(milliseconds: 1000),
         dotSize: 4.0,
         indicatorBgPadding: 2.0,
+        dotBgColor: Colors.transparent,
       ),
     );
     return Scaffold(
@@ -48,7 +50,8 @@ class _HomePageState extends State<HomePage> {
         title: Text('Comfort Zone'),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Colors.white,)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart,color: Colors.white,)),
+          IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> new Cart()));},
+              icon: Icon(Icons.shopping_cart,color: Colors.white,)),
         ],
       ),
       drawer: Drawer(
@@ -74,28 +77,30 @@ class _HomePageState extends State<HomePage> {
               onTap: (){},
               child: ListTile(
                 title: Text('Home Page'),
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.home, color: Colors.red,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('My Account'),
-                leading: Icon(Icons.person),
+                leading: Icon(Icons.person, color: Colors.red,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('My Orders'),
-                leading: Icon(Icons.shopping_basket),
+                leading: Icon(Icons.shopping_basket, color: Colors.red,),
               ),
             ),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new Cart()));
+              },
               child: ListTile(
-                title: Text('Categoris'),
-                leading: Icon(Icons.dashboard),
+                title: Text('Shopping Cart'),
+                leading: Icon(Icons.shopping_cart, color: Colors.red,),
               ),
             ),
             InkWell(
