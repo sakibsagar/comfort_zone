@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//my imports
+import 'package:comfort_zone/components/cart_products.dart';
 
 class Cart extends StatefulWidget {
   const Cart({Key? key}) : super(key: key);
@@ -19,6 +21,7 @@ class _CartState extends State<Cart> {
           IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Colors.white,)),
         ],
       ),
+      body: Cart_products(),
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Row(
